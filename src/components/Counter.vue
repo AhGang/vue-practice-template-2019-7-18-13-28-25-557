@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+<div>
     <button @click="increase()">+</button>
      <input id="num1" v-model="calNumber">
     <button @click="decrease()">-</button>
@@ -8,13 +8,13 @@
 
 <script>
 export default {
- name: 'HelloWorld',
+ name: 'Counter',
  data(){
     return {
-      calNumber: 0
+     calNumber: 0
     }
   },
-  methods:{
+  methods:{ 
   increase(){
       this.calNumber++;
      },
