@@ -1,10 +1,9 @@
 <template>
   <div>
     <div v-for="i in inputNum" :key="i">
-      <Counter/>
+      <Counter  @calSum="calSum" />
     </div>
   </div>
-
 </template>
 
 <script>
@@ -17,10 +16,14 @@ export default {
  props:['inputNum'],
  data(){
     return {
-     
+     sum: 0
     }
   },
   methods:{
+    calSum(data){
+      this.sum += data;
+      this.$emit("returnSum",this.sum)
+    },
 }
 }
 </script>

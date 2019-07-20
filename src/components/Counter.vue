@@ -1,8 +1,8 @@
 <template>
 <div>
-    <button @click="increase()">+</button>
+    <button @click="calSum(1)">+</button>
      <input id="num1" v-model="calNumber">
-    <button @click="decrease()">-</button>
+    <button @click="calSum(-1)">-</button>
   </div>
 </template>
 
@@ -11,22 +11,17 @@ export default {
  name: 'Counter',
  data(){
     return {
-     calNumber: 0
+     calNumber: 0,
     }
   },
-  methods:{ 
-  increase(){
-      this.calNumber++;
-     },
-  decrease(){
-      if(this.calNumber>0){
-        this.calNumber--;
-      }
-  }
+  methods:{
+  calSum(data){
+      this.calNumber += data;
+      data>0? this.$emit("calSum",1):this.$emit("calSum",-1)
+     }
 }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>
